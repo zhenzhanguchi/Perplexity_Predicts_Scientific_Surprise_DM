@@ -1,0 +1,10 @@
+word,frequency_top,frequency_bottom,top_olmo1b,bottom_olmo1b,top_olmo7b,bottom_olmo7b,top_llama3,bottom_llama3,top_deepseek,bottom_deepseek
+potential/potentially,349.5,299,365,311,307,249,379,296,347,340
+probable/probably,28.5,19.75,35,21,27,19,25,19,27,20
+likely,63.75,35,67,36,63,36,60,32,65,36
+perhaps,53.75,42.25,61,45,60,37,45,44,49,43
+maybe,55.5,44.25,58,42,56,42,54,45,54,48
+might,216.75,174.25,217,167,228,163,206,182,216,185
+how,809.25,662,807,664,815,644,826,668,789,672
+possible/possibly,111,97.5,114,96,111,99,116,93,103,102
+why,298.75,247.75,300,237,295,253,301,253,299,248
