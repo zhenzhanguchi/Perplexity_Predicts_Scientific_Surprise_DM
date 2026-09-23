@@ -5,11 +5,12 @@ This repository contains the dataset and code used to produce the main results (
 ---
 
 ## 📁 Repository Structure
-Perplexity_Predicts_Scientific_Surprise_DM/
-├── code/                   # Source code scripts for data analysis and visualization
-├── data/                   # Main datasets supporting the paper's findings
-├── README.md               # Documentation (this file)
-└── .DS_Store
+* `Perplexity_Predicts_Scientific_Surprise_DM/`
+  * `code/` - Source code scripts for data analysis and visualization
+  * `data/` - Main datasets supporting the paper's findings
+    * `data_field/` - Field-specific data subfolder
+  * `README.md` - Documentation file
+  * `.DS_Store`
 
 ---
 
@@ -17,10 +18,10 @@ Perplexity_Predicts_Scientific_Surprise_DM/
 
 All dataset files mentioned below are located under the "data/" directory.
 
-### 1. "ppl_jif_citation_llama3_natural_and_social_sciences.parquet"
+### 1. `ppl_jif_citation_llama3_natural_and_social_sciences.parquet`
 * **Description**: Contains paper abstract perplexity calculated via the Llama-3-8B model, 2-year journal impact factor (JIF), and citation count for papers in natural and social sciences.
 * **Columns**:
-  * "perplexity": Abstract perplexity calculated using Llama-3-8B.
+  * `perplexity`: Abstract perplexity calculated using Llama-3-8B.
   * `impact_factor_2y`: 2-year journal impact factor of the publishing journal.
   * `citation`: Paper citation count.
 * **Used for**: **Fig. 1b**, **Fig. 4c**
@@ -38,7 +39,7 @@ All dataset files mentioned below are located under the "data/" directory.
 
 ---
 
-### 3. `doi_delay.parquet`
+### 3. `doi_delay.parquet` (Liu, F., Rahwan, T. & AlShebli, B. Non-White scientists appear on fewer editorial boards, spend more time under review, and receive fewer citations. Proc. Natl. Acad. Sci. U. S. A. 120, e2215324120 (2023).)
 * **Description**: Metadata recording paper DOIs, abstract token counts, perplexity values, and peer review durations.
 * **Columns**:
   * `DOI`: Paper Digital Object Identifier.
@@ -57,7 +58,7 @@ All dataset files mentioned below are located under the "data/" directory.
   * `openreview_deepseek_ppl_rating_confidence_rating-disparity.parquet`
 * **Description**: Peer review metrics collected from OpenReview across four different language models (OLMo-1B, OLMo-7B, Llama-3-8B, and DeepSeek).
 * **Columns**:
-  * `perplexity`: Abstract perplexity from the respective language model.
+  * `perplexity_olmo1b`, `perplexity_olmo7b`, `perplexity_llama3`, `perplexity_deepseek`: Perplexity scores across the four language models.
   * `review_avg_rating`: Average reviewer score.
   * `review_avg_confidence`: Average reviewer confidence score.
   * `rating_max-min`: Score disparity among reviewers (maximum rating minus minimum rating).
@@ -66,11 +67,11 @@ All dataset files mentioned below are located under the "data/" directory.
 ---
 
 ### 5. `uncertainty_word_avg.csv`
-* **Description**: Frequency of hedge/uncertainty terms used by authors to state claims across top and bottom perplexity groups across four language models.
+* **Description**: Frequency of uncertainty terms used by authors to state claims across top and bottom perplexity groups across four language models.
 * **Columns**:
-  * `word`: Words expressing authorial uncertainty/hedging.
-  * `frequency_top`: Average word frequency in top-perplexity papers across all 4 models.
-  * `frequency_bottom`: Average word frequency in bottom-perplexity papers across all 4 models.
+  * `word`: Words expressing authorial uncertainty.
+  * `frequency_top`: Average word frequency in top-perplexity papers (top 20%) across all 4 models.
+  * `frequency_bottom`: Average word frequency in bottom-perplexity papers (bottom 20%) across all 4 models.
   * `top_olmo1b`, `bottom_olmo1b`: Word frequencies in top/bottom groups for OLMo-1B.
   * `top_olmo7b`, `bottom_olmo7b`: Word frequencies in top/bottom groups for OLMo-7B.
   * `top_llama3`, `bottom_llama3`: Word frequencies in top/bottom groups for Llama-3-8B.
@@ -91,7 +92,7 @@ All dataset files mentioned below are located under the "data/" directory.
   * `semantic_scholar_ppl_award_olmo7b.parquet`
   * `semantic_scholar_ppl_award_llama3.parquet`
   * `semantic_scholar_ppl_award_deepseek.parquet`
-* **Description**: Pairs paper abstract perplexity values (across 4 models) with award recognition status from Semantic Scholar.
+* **Description**: Pairs paper abstract perplexity values (across 4 language models) with award recognition status from Semantic Scholar. We focus on papers published at seven major AI conferences in 2024: EMNLP, ICML, ECCV, CVPR, ACL, AAAI, and ICLR.
 * **Columns**: Perplexity values for the given model and corresponding award indicator status.
 * **Used for**: **Fig. 3c**
 
@@ -115,11 +116,11 @@ All dataset files mentioned below are located under the "data/" directory.
   * `ppl_jif_citation_olmo7b_natural_and_social_sciences.parquet`
   * `ppl_jif_citation_llama3_natural_and_social_sciences.parquet`
   * `ppl_jif_citation_deepseek_natural_and_social_sciences.parquet`
-* **Description**: Multi-model comparative datasets for natural and social sciences papers.
+* **Description**: Contains abstract perplexity values calculated via four language models (OLMo-1B, OLMo-7B, Llama-3-8B, and DeepSeek) along with 2-year journal impact factor (JIF) and citation counts for natural and social sciences papers.
 * **Columns**:
   * `perplexity`: Abstract perplexity under the specified language model.
-  * `impact_factor_2y`: 2-year journal impact factor.
-  * `citation`: Citation count.
+  * `impact_factor_2y`: 2-year journal impact factor of the publishing journal.
+  * `citation`: Paper citation count.
 * **Used for**: **Fig. 4c**
 
 ---
@@ -128,11 +129,11 @@ All dataset files mentioned below are located under the "data/" directory.
 * **Files**:
   * `4_ppl_interdisciplinary_reference_natural-and-social-science.parquet`
   * `4_ppl_interdisciplinary_citation_natural-and-social-science.parquet`
-* **Description**: Interdisciplinary linkages of focal papers in natural and social sciences via references and forward citations.
+* **Description**: Contains the references (cited papers) and forward citations (citing papers) for focal papers in natural and social sciences, with each reference or citation identified as interdisciplinary or not.
 * **Columns**:
   * `id`: Focal paper unique identifier (a single ID can appear in multiple rows corresponding to multiple cited/citing papers).
   * `perplexity_olmo1b`, `perplexity_olmo7b`, `perplexity_llama3`, `perplexity_deepseek`: Perplexity scores across the four language models.
-  * `interdisciplinary`: Boolean/categorical flag indicating whether the corresponding reference or citation is interdisciplinary.
+  * `interdisciplinary`: Binary indicator for interdisciplinary references or citations (`1` = interdisciplinary, `0` = non-interdisciplinary).
 * **Used for**: **Fig. 4d**
 
 ---
@@ -153,7 +154,7 @@ All dataset files mentioned below are located under the "data/" directory.
 * **Files**:
   * `4_ppl_interdisciplinary_reference_art-and-humanities.parquet`
   * `4_ppl_interdisciplinary_citation_art-and-humanities.parquet`
-* **Description**: Interdisciplinary linkages of focal papers in arts and humanities via references and forward citations, structured identically to item #10.
+* **Description**: Structured identically to item #10, but specifically for focal papers in arts and humanities.
 * **Columns**: `id`, `perplexity_olmo1b`, `perplexity_olmo7b`, `perplexity_llama3`, `perplexity_deepseek`, `interdisciplinary`
 * **Used for**: **Fig. 4h**
 
