@@ -177,4 +177,6 @@ All dataset files mentioned below are located under the "data/" directory.
 | **Fig. 4c** | `ppl_jif_citation_*_natural_and_social_sciences.parquet` (4 files) |
 | **Fig. 4d** | `4_ppl_interdisciplinary_reference_natural-and-social-science.parquet`, `4_ppl_interdisciplinary_citation_natural-and-social-science.parquet` |
 | **Fig. 4g** | `ppl_jif_citation_*_arts_and_humanities.parquet` (4 files) |
+
+> **Note on Data Provision**: To comply with licensing agreements for proprietary databases (e.g., Web of Science), raw publication identifiers (such as WOS UIDs and paper titles) have been omitted from these dataset files. However, all essential variables (e.g., perplexity, JIF, citations) required to run the analysis scripts and reproduce all paper figures are fully provided.
 | **Fig. 4h** | `4_ppl_interdisciplinary_reference_art-and-humanities.parquet`, `4_ppl_interdisciplinary_citation_art-and-humanities.parquet` |
