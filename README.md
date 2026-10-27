@@ -2,6 +2,8 @@
 
 This repository contains the dataset and code used to produce the main results (Main Figs. 1–4) for the paper "Language Model Perplexity Predicts Scientific Surprise and Transformative Impact".
 
+We used Python 3.11.5 for data processing and statistical analyses, primarily with pandas (version 2.3.3) and NumPy (version 1.24.4). We used PyTorch (version 2.6.0) and Hugging Face Transformers (version 4.51.3) for language model inference and perplexity computation. The models used were GPT-2 (https://huggingface.co/openai-community/gpt2), OLMo-1B (https://huggingface.co/allenai/OLMo-1B), OLMo-7B (https://huggingface.co/allenai/OLMo-7B), Llama 3 8B (https://huggingface.co/meta-llama/Meta-Llama-3-8B) and DeepSeek-LLM-7B-Base (https://huggingface.co/deepseek-ai/deepseek-llm-7b-base). All model weights were obtained from their respective repositories on Hugging Face.
+
 ---
 
 ## 📁 Repository Structure
