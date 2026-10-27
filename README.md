@@ -5,7 +5,7 @@ This repository contains the dataset and code used to produce the main results (
 
 ## 📁 Repository Structure
 * `Perplexity_Predicts_Scientific_Surprise_DM/`
-  * `code/` - Source code scripts for data analysis and visualization
+  * `code/` - Source code for perplexity computation, data analysis, and visualization
   * `data/` - Main datasets supporting the paper's findings
     * `data_field/` - Field-specific data subfolder
   * `README.md` - Documentation file
