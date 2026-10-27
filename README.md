@@ -1,9 +1,6 @@
 # Language Model Perplexity Predicts Scientific Surprise and Transformative Impact
 
 This repository contains the dataset and code used to produce the main results (Main Figs. 1–4) for the paper "Language Model Perplexity Predicts Scientific Surprise and Transformative Impact".
-
-We used Python 3.11.5 for data processing and statistical analyses, primarily with pandas (version 2.3.3) and NumPy (version 1.24.4). We used PyTorch (version 2.6.0) and Hugging Face Transformers (version 4.51.3) for language model inference and perplexity computation. The models used were GPT-2 (https://huggingface.co/openai-community/gpt2), OLMo-1B (https://huggingface.co/allenai/OLMo-1B), OLMo-7B (https://huggingface.co/allenai/OLMo-7B), Llama 3 8B (https://huggingface.co/meta-llama/Meta-Llama-3-8B) and DeepSeek-LLM-7B-Base (https://huggingface.co/deepseek-ai/deepseek-llm-7b-base). All model weights were obtained from their respective repositories on Hugging Face.
-
 ---
 
 ## 📁 Repository Structure
@@ -15,6 +12,56 @@ We used Python 3.11.5 for data processing and statistical analyses, primarily wi
   * `.DS_Store`
 
 ---
+
+## ⚙️ System Requirements
+
+### Software Dependencies
+
+The software was developed and tested using Python 3.11.5. The main software dependencies are listed below.
+
+| Component | Version | Purpose |
+|---|---|---|
+| Python | 3.11.5 | Runtime environment |
+| pandas | 2.3.3 | Data processing and manipulation |
+| NumPy | 1.24.4 | Numerical computation |
+| PyTorch | 2.6.0 | Deep learning inference and perplexity computation |
+| Hugging Face Transformers | 4.51.3 | Language model loading and inference |
+
+### Language Models
+
+The following pretrained language models were used for perplexity computation. All model weights were obtained from their respective repositories on Hugging Face.
+
+| Model | Repository |
+|---|---|
+| GPT-2 | [openai-community/gpt2](https://huggingface.co/openai-community/gpt2) |
+| OLMo-1B | [allenai/OLMo-1B](https://huggingface.co/allenai/OLMo-1B) |
+| OLMo-7B | [allenai/OLMo-7B](https://huggingface.co/allenai/OLMo-7B) |
+| Llama 3 8B | [meta-llama/Meta-Llama-3-8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B) |
+| DeepSeek-LLM-7B-Base | [deepseek-ai/deepseek-llm-7b-base](https://huggingface.co/deepseek-ai/deepseek-llm-7b-base) |
+
+Access to Llama 3 may require accepting Meta's license terms and obtaining the necessary access permissions on Hugging Face.
+
+### Hardware Requirements
+
+The software supports two distinct workflows with different hardware requirements.
+
+**1. Perplexity computation**
+
+Language model inference and perplexity computation were performed using an NVIDIA H100 NVL GPU with approximately 94 GiB of GPU memory per device.
+
+GPU acceleration is recommended for efficient inference, especially when using the 7B and 8B parameter models. The GPU memory required depends on the selected model, input sequence length, numerical precision, and inference configuration.
+
+**2. Data processing and statistical analysis**
+
+Data processing and statistical analyses were performed on a CPU-based environment using Python, pandas, and NumPy. A GPU is not required for downstream analyses on precomputed perplexity values.
+
+The CPU, system memory, and operating system specifications should be selected according to the size of the input dataset and the computational demands of the analysis.
+
+### Operating System and Tested Environment
+
+The reported software versions and GPU configuration reflect the environments used for the study. The exact operating system version and CPU specifications have not yet been documented.
+
+Compatibility with other operating systems, hardware configurations, and dependency versions has not been systematically verified.
 
 ## 📊 Data Files Overview
 
